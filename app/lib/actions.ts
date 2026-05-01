@@ -99,6 +99,7 @@ export async function updateInvoice(id: string, prevState: State, formData: Form
 export async function deleteInvoice(id: string) {
   await sql`DELETE FROM invoices WHERE id = ${id}`;
   revalidatePath('/dashboard/invoices');
+  revalidatePath('/dashboard');
 }
 
 export async function authenticate(
